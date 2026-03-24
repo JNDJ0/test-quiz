@@ -1,6 +1,13 @@
 import pytest
 from model import Question
 
+@pytest.fixture
+def question():
+    question = Question(title='q1')
+    question.add_choice('a', False)
+    question.add_choice('b', True)
+    return question
+
 def test_create_question():
     question = Question(title='q1')
     assert question.id != None
@@ -123,3 +130,19 @@ def test_remove_choice_from_empty_question():
     
     with pytest.raises(Exception):
         question.remove_choice_by_id(1)
+
+def test_question_has_correct_choices(question):
+    assert question.choices[0].id == 1
+    assert question.choices[0].text == 'a'
+    assert not question.choices[0].is_correct
+
+    assert question.choices[1].id == 2
+    assert question.choices[1].text == 'b'
+    assert question.choices[1].is_correct
+
+def test_add_new_question_has_new_id(question):
+    question.add_choice('c', False)
+    
+    assert question.choices[2].id == 3
+    assert question.choices[2].text == 'c'
+    assert not question.choices[2].is_correct
