@@ -92,7 +92,7 @@ tests.py::test_create_choice PASSED                                             
 
 ### Faça o commit para executar os testes remotamente (via GitHub Actions)
 
-Os testes serão executados automaticamente no GitHub Actions sempre que um commit é realizado.
+Os testes serão executados automaticamente no GitHub Actions sempre que um commit é realizado!
 Portanto, para rodar os testes no GitHub Actions, realize uma alteração qualquer neste arquivo `README.md` e faça o commit da alteração com a seguinte mensagem: `Commit 1: Running the tests`.
 
 Em seguida, clique na aba `Actions` e veja que os testes foram executados com sucesso no GitHub Actions. 
